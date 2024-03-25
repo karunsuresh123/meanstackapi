@@ -1,0 +1,68 @@
+{
+  "name": "new",
+  "version": "1.0.0",
+  "description": "CloudOne nodejs boilerplate",
+  "author": "mohan.raj@netapp.com",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "pretest:ci": "mkdir -p .nyc_output",
+    "test:ci": "nyc --reporter=html --reporter=lcovonly --reporter=cobertura lab -a @hapi/code -r junit -o dist/test/TESTS-results.xml -l",
+    "posttest:ci": "",
+    "start": "node server",
+    "lint": "eslint .",
+    "lint-fix": "eslint --fix .",
+    "clean": "rm -rf node_modules dist .nyc_output"
+  },
+  "dependencies": {
+    "@hapi/code": "^9.0.2",
+    "@hapi/hapi": "20.2.1",
+    "@hapi/lab": "^25.0.1",
+    "autoprefixer": "^10.4.13",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.10",
+    "pine": "^1.1.1"
+  },
+  "devDependencies": {
+    "@hapi/eslint-config-hapi": "^13.0.2",
+    "@hapi/eslint-plugin-hapi": "^4.3.6",
+    "eslint": "^8.30.0",
+    "eslint-config-standard": "17.0.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "6.1.1",
+    "nyc": "^15.1.0",
+    "del": "^6.0.0",
+    "fancy-log": "^2.0.0",
+    "gulp": "^4.0.2",
+    "gulp-zip": "^5.1.0",
+    "nodemon": "^2.0.7",
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-stream": "^7.0.0"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "lines": 10,
+    "statements": 10,
+    "functions": 10,
+    "branches": 0,
+    "include": [
+      "**/*.js"
+    ],
+    "exclude": [
+      "test/**/*",
+      "server/index.js",
+      "dist/**/*"
+    ],
+    "cache": true,
+    "all": true,
+    "report-dir": "./dist/coverage"
+  }
+}

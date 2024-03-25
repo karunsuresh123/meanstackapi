@@ -1,0 +1,15 @@
+{
+  "env": {
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+      "eslint:recommended"
+  ],
+  "ignorePatterns": ["test/", "node_modules/","logs", "coverage", "dist"],
+  "parserOptions": {
+      // Only ESLint 6.2.0 and later support ES2020.
+      "ecmaVersion": 2020
+  }
+}
