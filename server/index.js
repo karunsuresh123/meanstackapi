@@ -39,9 +39,6 @@ app.get('/', (req, res) => {
     //res.sendFile(path.join(__dirname, './ui/build/index.html'));
     res.send({message: 'Hello from API !'});
 });
-
-
-
 app.listen(port, () => {
     console.log(`Server listening on the port  ${port}`);
 })
