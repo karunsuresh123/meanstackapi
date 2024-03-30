@@ -1,14 +1,13 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
+const logger = require('./logger/api.logger');
 
-// console.log('environment    ', process.env.ENVIRONMENT)
-// console.log('PORT    ', process.env.PORT)
-// console.log('MONGO_CONNECTION_STRING    ', process.env.MONGO_CONNECTION_STRING)
-// if(process.env.ENVIRONMENT !== 'production') {
-//     require('dotenv').config()
-// }
-
+/* if(process.env.ENVIRONMENT !== 'test') {
+    logger.info('loading environment variables from .env file');
+    require('dotenv').config({ path: './.env' })
+}
+*/
 
 const taskController = require('./controller/task.controller')
 
